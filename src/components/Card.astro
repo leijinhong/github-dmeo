@@ -1,9 +1,14 @@
 ---
-interface Props {
-    color: string;
-}
+// import ReactDom from "./React";
 
-const { color } = Astro.props;
+interface Props {
+    txt: string;
+}
+import Title from "./Title.astro";
+const { txt } = Astro.props;
 ---
 
-<section style={{ color }}>Hello Word666</section>
+<div>
+    <!-- <ReactDom /> -->
+    <Title title={txt} />
+</div>

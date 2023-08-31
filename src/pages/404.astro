@@ -1,0 +1,8 @@
+---
+import Layout from "../layouts/Layout.astro";
+const pathname = Astro.url.pathname;
+---
+
+<Layout title="404">
+    <div>没找到<span style="color:red;">{ pathname }</span>的页面</div>
+</Layout>

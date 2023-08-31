@@ -1,11 +1,21 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+import List from "../components/List.astro";
+import MyHtmlCom from "../components/MyHtmlCom.html";
+// import MyReactCom from "../components/MyReactCom.tsx";
+// import MyVueCom from "../components/MyVueCom.vue";
+import MyMdCom from "../components/MyMdCom.md";
 ---
 
 <Layout title="Welcome to Astro.">
     <main>
-        <Card color="red" />
+        <List>
+            <!-- <h1 slot="ccc">Hello Word!</h1> -->
+        </List>
+        <MyHtmlCom />
+        <!-- <MyReactCom client:load /> -->
+        <!-- <MyVueCom></MyVueCom> -->
+        <MyMdCom />
     </main>
 </Layout>
 
