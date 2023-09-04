@@ -6,9 +6,10 @@ interface Props {
 }
 import Title from "./Title.astro";
 const { txt } = Astro.props;
+
+const htmlString = "<p>Raw HTML content</p>";
 ---
 
-<div>
-    <!-- <ReactDom /> -->
-    <Title title={txt} />
-</div>
+<!-- <ReactDom /> -->
+<Fragment set:html={htmlString} />
+<Title title={txt} />

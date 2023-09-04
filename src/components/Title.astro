@@ -15,13 +15,13 @@ const { title, desc, titleColor, isPrimary } = Astro.props;
 
 {
     title && (
-        <div class="text-center m-5">
+        <div class="text-center m-5" >
             <div>
-                <div font-bold class={"text-9.5 " + "c-" + (titleColor ?? "tolerant")}>
+                <div font-bold class={"" + "c-" + (titleColor ?? "tolerant")}>
                     {title}
                 </div>
                 {desc && (
-                    <div text-5 mt-4 font-500 class={isPrimary ? "c-primary opacity-50" : "c-describe"}>
+                    <div text-5 font-500 class={isPrimary ? "c-primary opacity-50" : "c-describe"}>
                         {desc}
                     </div>
                 )}
@@ -29,3 +29,4 @@ const { title, desc, titleColor, isPrimary } = Astro.props;
         </div>
     )
 }
+

@@ -2,21 +2,31 @@
 import Layout from "../layouts/Layout.astro";
 import List from "../components/List.astro";
 import MyHtmlCom from "../components/MyHtmlCom.html";
-// import MyReactCom from "../components/MyReactCom.tsx";
+import MyReactComA from "../components/MyReactComA";
+import MyReactComB from "../components/MyReactComB";
+import MyReactComC from "../components/MyReactComC";
 // import MyVueCom from "../components/MyVueCom.vue";
 import MyMdCom from "../components/MyMdCom.md";
 ---
 
 <Layout title="Welcome to Astro.">
-    <main>
+    <main id="index">
         <List>
             <!-- <h1 slot="ccc">Hello Word!</h1> -->
         </List>
         <MyHtmlCom />
-        <!-- <MyReactCom client:load /> -->
+        <MyReactComA client:load title="client:load" />
+        <div style="height: 500px;"></div>
+        <MyReactComB client:only title="client:only" />
+        <MyReactComC client:only="svelte" title='client:only="svelte"' />
         <!-- <MyVueCom></MyVueCom> -->
         <MyMdCom />
     </main>
 </Layout>
 
-<style></style>
+<script>
+    function handleClick() {
+        // console.log("触发点击事件");
+    }
+    // document.getElementById("index").addEventListener("click", handleClick);
+</script>../components/MyReactComA
