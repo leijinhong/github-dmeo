@@ -1,0 +1,60 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+// import Image from "astro/components/Image.astro";
+import localImg from "../assets/img.png";
+
+const message = "hello world!";
+
+const fontColor = "red";
+
+const posts = await Astro.glob("../components/*.md");
+console.log(posts);
+
+// console.log(Image);
+---
+
+<Layout title="About">
+    <a href="/" class="text-red-500">回到首页</a>
+    <a href="/authors/1">前往动态页面</a>
+    <h1 class:list={["box", "red"]}>我是 About 页面</h1>
+
+    <astro-heart data-message-info={message}>
+        <button aria-label="Heart">X</button>
+    </astro-heart>
+
+    <!-- <Image src={localImg} alt="家教订单" width={50} height={50} /> -->
+    <img
+        src="https://images.unsplash.com/photo-1544297787-43ce4f544585?ixlib=rb-1.2.1&q=99&fm=jpg&crop=entropy&cs=tinysrgb&w=2048&fit=max&ixid=eyJhcHBfaWQiOjcwOTV9?momo_cache_bg_uuid=ab92978b-0d67-4840-9758-449d1787d804"
+        alt=""
+    />
+    <!-- <Image
+        src="https://images.unsplash.com/photo-1544297787-43ce4f544585?ixlib=rb-1.2.1&q=99&fm=jpg&crop=entropy&cs=tinysrgb&w=2048&fit=max&ixid=eyJhcHBfaWQiOjcwOTV9?momo_cache_bg_uuid=ab92978b-0d67-4840-9758-449d1787d804"
+        alt="家教订单"
+        width={50}
+        height={50}
+    /> -->
+</Layout>
+
+<style define:vars={{ fontColor }}>
+    a {
+        color: var(--fontColor);
+    }
+</style>
+<script>
+    // 为 astro-heart 元素定义行为
+    class AstroHeart extends HTMLElement {
+        constructor() {
+            super();
+
+            const message = this.dataset;
+            const button = this.querySelector("button");
+            button.addEventListener("click", () => {
+                console.log(message);
+            });
+        }
+    }
+
+    // 告诉浏览器定义自定义元素的行为
+    customElements.define("astro-heart", AstroHeart);
+</script>

@@ -1,7 +1,15 @@
 <template>
-    <div>我是vue文件</div>
+    <div>
+        <div @click="handleClick">{{ title }}</div>
+        <slot msg="hello Vue!"></slot>
+    </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+const title = ref("我是vue文件");
 
-<style lang="scss" scoped></style>
+const handleClick = () => {
+    title.value += 1;
+};
+</script>

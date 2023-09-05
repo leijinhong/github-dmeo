@@ -3,30 +3,23 @@ import Layout from "../layouts/Layout.astro";
 import List from "../components/List.astro";
 import MyHtmlCom from "../components/MyHtmlCom.html";
 import MyReactComA from "../components/MyReactComA";
-import MyReactComB from "../components/MyReactComB";
-import MyReactComC from "../components/MyReactComC";
-// import MyVueCom from "../components/MyVueCom.vue";
+// import MyReactComB from "../components/MyReactComB";
+// import MyReactComC from "../components/MyReactComC";
+import MyVueCom from "../components/MyVueCom.vue";
 import MyMdCom from "../components/MyMdCom.md";
 ---
 
 <Layout title="Welcome to Astro.">
+    <a href="/about">前往About</a>
     <main id="index">
-        <List>
-            <!-- <h1 slot="ccc">Hello Word!</h1> -->
-        </List>
         <MyHtmlCom />
-        <MyReactComA client:load title="client:load" />
-        <div style="height: 500px;"></div>
-        <MyReactComB client:only title="client:only" />
-        <MyReactComC client:only="svelte" title='client:only="svelte"' />
-        <!-- <MyVueCom></MyVueCom> -->
+        <MyVueCom client:load>
+            <List />
+            <MyReactComA client:load title="client:load" />
+        </MyVueCom>
+        <!-- <MyReactComB client:only title="client:only" /> -->
+        <!-- <MyReactComC client:only="svelte" title='client:only="svelte"' /> -->
+
         <MyMdCom />
     </main>
 </Layout>
-
-<script>
-    function handleClick() {
-        // console.log("触发点击事件");
-    }
-    // document.getElementById("index").addEventListener("click", handleClick);
-</script>../components/MyReactComA

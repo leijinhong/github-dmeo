@@ -1,0 +1,28 @@
+---
+export async function getStaticPaths(params) {
+    return [
+        {
+            params: { author: "ccc" }, // 动态参数必须为ccc才能进入
+            props: {
+                post: {
+                    name: "qqq",
+                    sex: 0,
+                },
+            },
+        },
+    ];
+}
+
+import Layout from "../../layouts/Layout.astro";
+
+const { post } = Astro.props;
+const { author } = Astro.params;
+---
+
+<Layout title="CCC">
+    <div>
+        <!-- <div>{id}</div> -->
+        {"我是动态路由我的参数是：" + author}
+        {JSON.stringify(post)}
+    </div>
+</Layout>

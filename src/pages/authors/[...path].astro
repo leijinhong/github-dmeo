@@ -1,0 +1,10 @@
+---
+import type { GetStaticPaths } from "astro";
+export const getStaticPaths = (() => {
+    return [{ params: { path: "one/two/three" } }, { params: { path: "four" } }, { params: { path: undefined } }];
+}) satisfies GetStaticPaths;
+
+const { path } = Astro.params;
+---
+
+<div>{path || "undefined"}</div>
